@@ -23,14 +23,13 @@ public:
 	void moveTank(bool left)
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Left)){
-			x_pos += -.1;
+			x_pos += -1.5;
 			bodySprite.setTexture(texDec.player1lefttexture);
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Right)){
-			x_pos += .1;
+			x_pos += 1.5;
 			bodySprite.setTexture(texDec.player1righttexture);
 		}
 	}
-
 
 };
