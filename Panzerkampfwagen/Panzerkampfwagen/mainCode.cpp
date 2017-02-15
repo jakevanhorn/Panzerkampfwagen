@@ -18,6 +18,7 @@ int main()
 	tank[0].y_pos = 740;
 	tank[0].bodySprite.setPosition(tank[0].x_pos,tank[0].y_pos);
 	tank[0].bodySprite.setScale(1.0f, 1.0f);
+	tank[0].facingleft = true;
 
 	// Set basic values for our test projectile
 	tank[0].mainProj.x_posC = tank[0].x_pos;
@@ -48,7 +49,10 @@ int main()
 		for (int a = 0; a < 1; a++)
 		{
 			tank[a].bodySprite.setPosition(tank[a].x_pos, tank[a].y_pos);
+			tank[a].armSprite.setOrigin(23, 3);
+			tank[a].armSprite.setPosition(tank[a].x_pos + 14, tank[a].y_pos + 27);
 			window.draw(tank[a].bodySprite);
+			window.draw(tank[a].armSprite);
 			window.draw(tank[a].mainProj.projectile);
 		}
 
@@ -69,20 +73,24 @@ int main()
 			tank[0].moveTank(true);
 		}
 
+		if (Keyboard::isKeyPressed(Keyboard::Up) | Keyboard::isKeyPressed(Keyboard::Down)){
+			tank[0].moveArm();
+		}
+
 		for (int a = 0; a < 1; a++)
 		{
 			if (tank[a].mainProj.testAir == 0){
 				tank[a].mainProj.projectile.setTexture(texDec.fireball);
-				cout << "Still" << endl;
+				cout << "a";
 			}
 
 			if (tank[a].mainProj.testAir == 1){
-				tank[a].mainProj.projectile.setTexture(texDec.hidden);
+				tank[a].mainProj.projectile.setTexture(texDec.fireball);
 				tank[a].mainProj.time = tank[a].mainProj.clock.getElapsedTime();
 				tank[a].mainProj.moveProj(tank[a].mainProj.time);
 				tank[a].mainProj.clock.restart();
 
-				cout << "Shot" << endl;
+				cout << "b";
 			}
 
 			if (tank[a].mainProj.y_pos > 790){
