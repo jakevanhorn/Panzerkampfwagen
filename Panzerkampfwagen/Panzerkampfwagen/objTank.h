@@ -70,6 +70,5 @@ public:
 			}
 		}
 		angle = armSprite.getRotation();
-		cout << angle << endl;
 	}
 };

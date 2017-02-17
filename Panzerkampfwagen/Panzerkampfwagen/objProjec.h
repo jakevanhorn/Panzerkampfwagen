@@ -43,5 +43,19 @@ public:
 		y_velocity += (y_accel * time1.asSeconds());
 		y_pos += (y_velocity * time1.asSeconds());
 		projectile.setPosition(x_pos, y_pos);
+		if (testAir == 0){
+			projectile.setTexture(texDec.fireball);
+		}
+		if (testAir == 1){
+			projectile.setTexture(texDec.fireball);
+		}
+	}
+
+	void testOut(double tx_pos,double ty_pos)
+	{
+		if (x_pos > 790){
+			projecReset(tx_pos, ty_pos);
+			testAir = 0;
+		}
 	}
 };

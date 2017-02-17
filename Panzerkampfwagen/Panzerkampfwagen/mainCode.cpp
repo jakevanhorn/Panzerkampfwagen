@@ -79,24 +79,13 @@ int main()
 
 		for (int a = 0; a < 1; a++)
 		{
-			if (tank[a].mainProj.testAir == 0){
-				tank[a].mainProj.projectile.setTexture(texDec.fireball);
-				cout << "a";
-			}
-
 			if (tank[a].mainProj.testAir == 1){
-				tank[a].mainProj.projectile.setTexture(texDec.fireball);
 				tank[a].mainProj.time = tank[a].mainProj.clock.getElapsedTime();
 				tank[a].mainProj.moveProj(tank[a].mainProj.time);
 				tank[a].mainProj.clock.restart();
-
-				cout << "b";
 			}
 
-			if (tank[a].mainProj.y_pos > 790){
-				tank[a].mainProj.projecReset(tank[0].x_pos, tank[0].y_pos);
-				tank[a].mainProj.testAir = 0;
-			}
+			tank[a].mainProj.testOut(tank[0].x_pos, tank[0].y_pos);
 		}
 
 	}
