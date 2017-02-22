@@ -3,28 +3,51 @@
 class objTank
 {
 public:
-	string name;
 	double x_pos;
-	int y_pos;
+	double y_pos;
+
 	int angle;
+
+	bool facingleft;
+	bool directionchanged = false;
+
 	Sprite bodySprite;
 	Sprite armSprite;
-	bool facingleft;
-	bool hasmoved = false;
-	bool directionchanged = false;
+
 	textureDeclare texDec;
 
-	objProjec mainProj;
+	objProjec testProj = { x_pos, y_pos, 300, 300 * -1, 200 };
 
-	objTank()
+	//vector <objProjec> mainProj;
+
+	objTank(double dx_pos, double dy_pos)
+	{
+		x_pos = dx_pos;
+		y_pos = dy_pos;
+		setDefaultTexture();
+		changePos();
+		facingleft = true;
+	}
+
+	void setDefaultTexture()
 	{
 		bodySprite.setTexture(texDec.player1lefttexture);
 		armSprite.setTexture(texDec.arm1texture);
+		bodySprite.setOrigin(14, 26);
+		bodySprite.setScale(1.0f, 1.0f);
+		armSprite.setScale(1.0f, 1.0f);
+		armSprite.setOrigin(22, 2);
 	}
 
-	void moveTank(bool left)
+	void changePos()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Left)){
+		bodySprite.setPosition(x_pos, y_pos);
+		armSprite.setPosition(x_pos, y_pos);
+	}
+
+	void moveTank()
+	{
+		if (Keyboard::isKeyPressed(Keyboard::Left) &! Keyboard::isKeyPressed(Keyboard::Right)){
 			x_pos += -1;
 			bodySprite.setTexture(texDec.player1lefttexture);
 			if (facingleft == false){
@@ -32,7 +55,7 @@ public:
 			}
 			facingleft = true;
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Right)){
+		if (Keyboard::isKeyPressed(Keyboard::Right) &! Keyboard::isKeyPressed(Keyboard::Left) ){
 			x_pos += 1;
 			bodySprite.setTexture(texDec.player1righttexture);
 			if (facingleft == true){

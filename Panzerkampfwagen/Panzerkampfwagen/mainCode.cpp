@@ -1,36 +1,38 @@
 #include "objTank.h"
 
+int checkPlayerTurn()
+{
+	if (Keyboard::isKeyPressed(Keyboard::Num1)){ return 1; }
+	else if (Keyboard::isKeyPressed(Keyboard::Num2)){ return 2; }
+	else { return 0; }
+}
+
 int main()
 {
 	srand(time(NULL));
 
 	textureDeclare texDec;
 
+	int playerTurn = 0;
+
 	// Create the background
 	RectangleShape background(Vector2f(1400, 800));
 	background.setPosition(0, 0);
 	background.setFillColor(Color(60, 60, 60));
 
-	objTank tank[1]; // This is the vector that holds all of the players
+	objTank testTank = { 466, 740 };
 
-	// Set basic info for our test player
-	tank[0].x_pos = 40;
-	tank[0].y_pos = 740;
-	tank[0].bodySprite.setPosition(tank[0].x_pos,tank[0].y_pos);
-	tank[0].bodySprite.setScale(1.0f, 1.0f);
-	tank[0].facingleft = true;
+	vector <objTank> tanks;
+	tanks.push_back(testTank);
+	testTank.x_pos = 932;
+	testTank.changePos();
+	tanks.push_back(testTank);
 
-	// Set basic values for our test projectile
-	tank[0].mainProj.x_posC = tank[0].x_pos;
-	tank[0].mainProj.y_posC = tank[0].y_pos;
-	tank[0].mainProj.x_velocityC = 300;
-	tank[0].mainProj.y_velocityC = 300 * -1;
-	tank[0].mainProj.y_accelC = 200;
-	tank[0].mainProj.projecReset(tank[0].x_pos, tank[0].y_pos);
-	tank[0].mainProj.projectile.setScale(Vector2f(1, 1));
+	//tanks.emplace_back(466, 740);
+	//tanks.emplace_back(932, 740);
 
 	RenderWindow window(VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(120);
 
 	while (window.isOpen()){ // Basic window code
 
@@ -44,49 +46,44 @@ int main()
 
 		window.clear(); // Clear window
 
+		// This is the section where we draw the sprite on the window
+
 		window.draw(background); // Draw basic window components
 		
-		for (int a = 0; a < 1; a++)
+		for (int a = 0; a < 2; a++)
 		{
-			tank[a].bodySprite.setPosition(tank[a].x_pos, tank[a].y_pos);
-			tank[a].armSprite.setOrigin(23, 3);
-			tank[a].armSprite.setPosition(tank[a].x_pos + 14, tank[a].y_pos + 27);
-			window.draw(tank[a].bodySprite);
-			window.draw(tank[a].armSprite);
-			window.draw(tank[a].mainProj.projectile);
+			window.draw(tanks[a].bodySprite);
+			window.draw(tanks[a].armSprite);
+			window.draw(tanks[a].testProj.projectile);
 		}
 
-		window.display();
+		window.display(); // Display the window
 
-		if (Keyboard::isKeyPressed(Keyboard::Space)){
-			for (int a = 0; a < 1; a++)
-			{
-				if (tank[a].mainProj.testAir != 1) {
-					tank[a].mainProj.projecReset(tank[0].x_pos, tank[0].y_pos);
-					tank[a].mainProj.testAir = 1;
-					tank[a].mainProj.clock.restart();
-				}
-			}
+		// This is the section where all are functions are called if appropriate
+
+		if (checkPlayerTurn() != 0){
+			playerTurn = checkPlayerTurn() - 1;
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Left) | Keyboard::isKeyPressed(Keyboard::Right)){
-			tank[0].moveTank(true);
+			tanks[playerTurn].moveTank();
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Up) | Keyboard::isKeyPressed(Keyboard::Down)){
-			tank[0].moveArm();
+			tanks[playerTurn].moveArm();
 		}
 
-		for (int a = 0; a < 1; a++)
-		{
-			if (tank[a].mainProj.testAir == 1){
-				tank[a].mainProj.time = tank[a].mainProj.clock.getElapsedTime();
-				tank[a].mainProj.moveProj(tank[a].mainProj.time);
-				tank[a].mainProj.clock.restart();
-			}
+		tanks[playerTurn].changePos();
 
-			tank[a].mainProj.testOut(tank[0].x_pos, tank[0].y_pos);
+		if (Keyboard::isKeyPressed(Keyboard::Space)){
+			tanks[playerTurn].testProj.shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
 		}
+
+		tanks[playerTurn].testProj.moveProj();
+
+		tanks[playerTurn].testProj.testOut(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
+
+
 
 	}
 	return 10;
