@@ -20,16 +20,20 @@ int main()
 	background.setPosition(0, 0);
 	background.setFillColor(Color(60, 60, 60));
 
-	objTank testTank = { 466, 740 };
-
 	vector <objTank> tanks;
-	tanks.push_back(testTank);
-	testTank.x_pos = 932;
-	testTank.changePos();
-	tanks.push_back(testTank);
+
+	objTank testTank(466, 740);
+
+	//tanks.push_back(testTank);
+	//testTank.x_pos = 932;
+	//testTank.changePos();
+	//tanks.push_back(testTank);
 
 	//tanks.emplace_back(466, 740);
 	//tanks.emplace_back(932, 740);
+
+	tanks.push_back(objTank(466, 740));
+	tanks.push_back(objTank(932, 740));
 
 	RenderWindow window(VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
 	window.setFramerateLimit(120);
