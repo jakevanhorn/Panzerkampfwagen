@@ -10,9 +10,8 @@ int main()
 
 	vector <int> testV;
 
-	testV.push_back(a);
-	a = 7;
-	testV.push_back(a);
+	testV.push_back(int(6));
+	testV.emplace_back(4);
 
 	cout << testV[0] << "  " << testV[1];
 

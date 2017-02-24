@@ -67,7 +67,7 @@ public:
 		if (y_pos > 790){
 			projecReset(tx_pos, ty_pos);
 			testAir = 0;
-			projectile.setTexture(texDec.hidden);
+			projectile.setTexture(texDec.fireball);
 		}
 	}
 };

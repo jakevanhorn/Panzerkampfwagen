@@ -29,10 +29,8 @@ int main()
 	//testTank.changePos();
 	//tanks.push_back(testTank);
 
-	//tanks.emplace_back(466, 740);
-	//tanks.emplace_back(932, 740);
-
-	tanks.push_back(objTank(466, 740));
+	//tanks.push_back(objTank(466, 740));
+	tanks.push_back(objTank(100, 740));
 	tanks.push_back(objTank(932, 740));
 
 	RenderWindow window(VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window

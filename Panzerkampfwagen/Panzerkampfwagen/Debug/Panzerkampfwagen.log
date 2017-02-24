@@ -1,4 +1,4 @@
-﻿Build started 2/22/2017 8:38:49 AM.
+﻿Build started 2/24/2017 9:35:00 AM.
      1>Project "E:\GitHub_Code\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Programs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mainCode.cpp
@@ -16,4 +16,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.51
+Time Elapsed 00:00:02.66
