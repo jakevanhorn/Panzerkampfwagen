@@ -17,16 +17,18 @@ public:
 	Clock clock;
 	Time time;
 
-	textureDeclare texDec;
 	Sprite projectile;
 
-	objProjec(double cx_pos, double cy_pos, double cx_vel, double cy_vel, double cy_acc)
+	textureDeclare* texDec;
+
+	objProjec(double cx_pos, double cy_pos, double cx_vel, double cy_vel, double cy_acc, textureDeclare* texDecRef)
 	{
+		texDec = texDecRef;
 		x_velocityC = cx_vel;
 		y_velocityC = cy_vel;
 		y_accelC = cy_acc;
 		projecReset(cx_pos, cy_pos);
-		projectile.setTexture(texDec.fireball); //Fix
+		projectile.setTexture(texDec->textures["Fireball"]); //Fix
 		projectile.setScale(Vector2f(1, 1));
 	}
 
@@ -46,7 +48,7 @@ public:
 			projecReset(tx_pos, ty_pos);
 			testAir = 1;
 			clock.restart();
-			projectile.setTexture(texDec.fireball);
+			projectile.setTexture(texDec->textures["Fireball"]);
 		}
 	}
 
@@ -67,7 +69,7 @@ public:
 		if (y_pos > 790){
 			projecReset(tx_pos, ty_pos);
 			testAir = 0;
-			projectile.setTexture(texDec.fireball);
+			projectile.setTexture(texDec->textures["Hidden"]);
 		}
 	}
 };

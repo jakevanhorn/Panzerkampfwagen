@@ -22,16 +22,15 @@ int main()
 
 	vector <objTank> tanks;
 
-	objTank testTank(466, 740);
+	objTank testTank(466, 740, &texDec);
 
 	//tanks.push_back(testTank);
 	//testTank.x_pos = 932;
 	//testTank.changePos();
 	//tanks.push_back(testTank);
 
-	//tanks.push_back(objTank(466, 740));
-	tanks.push_back(objTank(100, 740));
-	tanks.push_back(objTank(932, 740));
+	tanks.push_back(objTank(466, 740, &texDec));
+	tanks.push_back(objTank(932, 740, &texDec));
 
 	RenderWindow window(VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
 	window.setFramerateLimit(120);

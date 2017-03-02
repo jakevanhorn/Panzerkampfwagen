@@ -3,26 +3,34 @@
 class textureDeclare
 {
 public:
-	Texture player1lefttexture;
-	Texture player2lefttexture;
-	Texture player1righttexture;
-	Texture player2righttexture;
-	Texture arm1texture;
-	Texture arm2righttexture;
-	Texture arm2lefttexture;
-	Texture fireball;
-	Texture hidden;
+
+	map <string, Texture> textures;
 
 	textureDeclare(){
-		if (!player1lefttexture.loadFromFile("Wizard_Red_Left.png")){  }
-		if (!player2lefttexture.loadFromFile("Wizard_Blue_Left.png")){  }
-		if (!player1righttexture.loadFromFile("Wizard_Red_Right.png")){  }
-		if (!player2righttexture.loadFromFile("Wizard_Blue_Right.png")){  }
-		if (!arm1texture.loadFromFile("Wizard_Red_Arm.png")){  }
-		if (!arm2righttexture.loadFromFile("Wizard_Blue_Arm_Right.png")){  }
-		if (!arm2lefttexture.loadFromFile("Wizard_Blue_Arm_Left.png")){  }
-		if (!fireball.loadFromFile("fireBall.png")){  }
-		if (!hidden.loadFromFile("Hidden.png")){  }
+
+		addTexture("RedLeft", "Wizard_Red_Left.png");
+		addTexture("RedRight","Wizard_Red_Right.png");
+		addTexture("BlueLeft","Wizard_Blue_Left.png");
+		addTexture("BlueRight","Wizard_Blue_Right.png");
+		addTexture("RedArm","Wizard_Red_Arm.png");
+		addTexture("BlueArm","Wizard_Blue_Arm.png");
+		addTexture("Fireball","fireBall.png");
+		addTexture("Hidden","Hidden.png");
+
+		//if (!textures[0].loadFromFile("Wizard_Red_Left.png")){} / Example code if you need to debug the textures being loaded
+	}
+
+	void addTexture(string name, string filename)
+	{
+		Texture tempTexture;
+		if (!tempTexture.loadFromFile(filename)){ cout << "Error"; }
+
+		textures[name] = tempTexture;
+	}
+
+	Texture* getTextureByName(string name)
+	{
+		return &textures[name];
 	}
 
 };
