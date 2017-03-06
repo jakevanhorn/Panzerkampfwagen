@@ -4,7 +4,7 @@ class textureDeclare
 {
 public:
 
-	map <string, Texture> textures;
+	std::map <std::string, sf::Texture> textures;
 
 	textureDeclare(){
 
@@ -20,15 +20,15 @@ public:
 		//if (!textures[0].loadFromFile("Wizard_Red_Left.png")){} / Example code if you need to debug the textures being loaded
 	}
 
-	void addTexture(string name, string filename)
+	void addTexture(std::string name, std::string filename)
 	{
-		Texture tempTexture;
-		if (!tempTexture.loadFromFile(filename)){ cout << "Error"; }
+		sf::Texture tempTexture;
+		if (!tempTexture.loadFromFile(filename)){ std::cout << "Error"; }
 
 		textures[name] = tempTexture;
 	}
 
-	Texture* getTextureByName(string name)
+	sf::Texture* getTextureByName(std::string name)
 	{
 		return &textures[name];
 	}

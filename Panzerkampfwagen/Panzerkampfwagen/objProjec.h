@@ -3,7 +3,7 @@
 class objProjec
 {
 public:
-	string name;
+	std::string name;
 	double x_pos;
 	double y_pos;
 	double x_velocity;
@@ -14,10 +14,10 @@ public:
 	double y_accelC;
 	int type = 0;
 	int testAir = 0;
-	Clock clock;
-	Time time;
+	sf::Clock clock;
+	sf::Time time;
 
-	Sprite projectile;
+	sf::Sprite projectile;
 
 	textureDeclare* texDec;
 
@@ -29,7 +29,7 @@ public:
 		y_accelC = cy_acc;
 		projecReset(cx_pos, cy_pos);
 		projectile.setTexture(texDec->textures["Fireball"]); //Fix
-		projectile.setScale(Vector2f(1, 1));
+		projectile.setScale(sf::Vector2f(1, 1));
 	}
 
 	void projecReset(double tx_pos, double ty_pos)

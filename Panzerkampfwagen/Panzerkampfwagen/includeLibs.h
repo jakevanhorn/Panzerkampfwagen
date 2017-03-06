@@ -9,7 +9,4 @@
 #include <time.h>
 #include <vector>
 
-using namespace std;
-using namespace sf;
-
 #endif

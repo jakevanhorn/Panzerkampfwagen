@@ -2,8 +2,8 @@
 
 int checkPlayerTurn()
 {
-	if (Keyboard::isKeyPressed(Keyboard::Num1)){ return 1; }
-	else if (Keyboard::isKeyPressed(Keyboard::Num2)){ return 2; }
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)){ return 1; }
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)){ return 2; }
 	else { return 0; }
 }
 
@@ -16,11 +16,11 @@ int main()
 	int playerTurn = 0;
 
 	// Create the background
-	RectangleShape background(Vector2f(1400, 800));
+	sf::RectangleShape background(sf::Vector2f(1400, 800));
 	background.setPosition(0, 0);
-	background.setFillColor(Color(60, 60, 60));
+	background.setFillColor(sf::Color(60, 60, 60));
 
-	vector <objTank> tanks;
+	std::vector <objTank> tanks;
 
 	objTank testTank(466, 740, &texDec);
 
@@ -32,15 +32,15 @@ int main()
 	tanks.push_back(objTank(466, 740, &texDec));
 	tanks.push_back(objTank(932, 740, &texDec));
 
-	RenderWindow window(VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
+	sf::RenderWindow window(sf::VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
 	window.setFramerateLimit(120);
 
 	while (window.isOpen()){ // Basic window code
 
-		Event event1;
+		sf::Event event1;
 		while (window.pollEvent(event1))
 		{
-			if (event1.type == Event::Closed){
+			if (event1.type == sf::Event::Closed){
 				window.close();
 			}
 		}
@@ -66,17 +66,17 @@ int main()
 			playerTurn = checkPlayerTurn() - 1;
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Left) | Keyboard::isKeyPressed(Keyboard::Right)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) | sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 			tanks[playerTurn].moveTank();
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Up) | Keyboard::isKeyPressed(Keyboard::Down)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) | sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 			tanks[playerTurn].moveArm();
 		}
 
 		tanks[playerTurn].changePos();
 
-		if (Keyboard::isKeyPressed(Keyboard::Space)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 			tanks[playerTurn].testProj.shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
 		}
 

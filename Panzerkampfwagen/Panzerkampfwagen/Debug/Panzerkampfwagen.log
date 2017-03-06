@@ -1,9 +1,28 @@
-﻿Build started 3/4/2017 11:45:44 PM.
-     1>Project "E:\B-Code\GitHub\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         Panzerkampfwagen.vcxproj -> E:\B-Code\GitHub\Panzerkampfwagen\Panzerkampfwagen\Debug\Panzerkampfwagen.exe
-     1>Done Building Project "E:\B-Code\GitHub\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" (Build target(s)).
+﻿Build started 3/6/2017 9:31:03 AM.
+     1>Project "E:\GitHub_Code\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Programs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mainCode.cpp
+         mainCode.cpp
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(42): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(62): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(47): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(48): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(98): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(12): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(58): error C2039: 'testProj' : is not a member of 'objTank'
+                 e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(5) : see declaration of 'objTank'
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(58): error C2228: left of '.projectile' must have class/struct/union
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(80): error C2039: 'testProj' : is not a member of 'objTank'
+                 e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(5) : see declaration of 'objTank'
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(80): error C2228: left of '.shootProj' must have class/struct/union
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(83): error C2039: 'testProj' : is not a member of 'objTank'
+                 e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(5) : see declaration of 'objTank'
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(83): error C2228: left of '.moveProj' must have class/struct/union
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(85): error C2039: 'testProj' : is not a member of 'objTank'
+                 e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(5) : see declaration of 'objTank'
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\maincode.cpp(85): error C2228: left of '.testOut' must have class/struct/union
+     1>Done Building Project "E:\GitHub_Code\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.30
+Time Elapsed 00:00:02.22

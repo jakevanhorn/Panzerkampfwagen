@@ -11,12 +11,12 @@ public:
 	bool facingleft;
 	bool directionchanged = false;
 
-	Sprite bodySprite;
-	Sprite armSprite;
+	sf::Sprite bodySprite;
+	sf::Sprite armSprite;
 
 	textureDeclare* texDec;
 
-	objProjec testProj = { x_pos, y_pos, 300, 300 * -1, 200, texDec};
+	objProjec testProj = { 0.0, 0.0, 0.0, 0.0, 0.0, texDec };
 
 	//vector <objProjec> mainProj;
 
@@ -28,6 +28,7 @@ public:
 		setDefaultTexture();
 		changePos();
 		facingleft = true;
+		testProj = new objProjec(x_pos, y_pos, 300, 300 * -1, 200, texDec);
 	}
 
 	void setDefaultTexture()
@@ -48,7 +49,7 @@ public:
 
 	void moveTank()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Left) &! Keyboard::isKeyPressed(Keyboard::Right)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) &!sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 			x_pos += -1;
 			bodySprite.setTexture(texDec->textures["RedLeft"]);
 			if (facingleft == false){
@@ -56,7 +57,7 @@ public:
 			}
 			facingleft = true;
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Right) &! Keyboard::isKeyPressed(Keyboard::Left) ){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) &!sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
 			x_pos += 1;
 			bodySprite.setTexture(texDec->textures["RedRight"]);
 			if (facingleft == true){
@@ -74,10 +75,10 @@ public:
 			directionchanged = false;
 		}
 	}
-	
+
 	void moveArm()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Up)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
 			if (facingleft == true){
 				armSprite.rotate(1);
 			}
@@ -85,7 +86,7 @@ public:
 				armSprite.rotate(-1);
 			}
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Down)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 			if (facingleft == true){
 				armSprite.rotate(-1);
 			}
