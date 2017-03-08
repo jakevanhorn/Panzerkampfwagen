@@ -1,5 +1,6 @@
-#ifndef includeLibs_HEADER
-#define includeLibs_HEADER
+//#ifndef includeLibs_HEADER
+//#define includeLibs_HEADER
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
@@ -9,4 +10,4 @@
 #include <time.h>
 #include <vector>
 
-#endif
+//#endif

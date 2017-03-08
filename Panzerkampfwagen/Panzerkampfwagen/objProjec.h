@@ -1,3 +1,8 @@
+//#ifndef objProjec_HEADER
+//#define objProjec_HEADER
+#pragma once
+
+#include"includeLibs.h"
 #include "textureDeclare.h"
 
 class objProjec
@@ -28,8 +33,13 @@ public:
 		y_velocityC = cy_vel;
 		y_accelC = cy_acc;
 		projecReset(cx_pos, cy_pos);
-		projectile.setTexture(texDec->textures["Fireball"]); //Fix
+		setTexture(10);
 		projectile.setScale(sf::Vector2f(1, 1));
+	}
+
+	void setTexture(int type)
+	{
+		projectile.setTexture(texDec->textures["Hidden"]);
 	}
 
 	void projecReset(double tx_pos, double ty_pos)
@@ -73,3 +83,5 @@ public:
 		}
 	}
 };
+
+//#endif

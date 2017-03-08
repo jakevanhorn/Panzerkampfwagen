@@ -1,3 +1,9 @@
+//#ifndef objTank_HEADER
+//#define objTank_HEADER
+#pragma once
+
+#include"includeLibs.h"
+#include "textureDeclare.h"
 #include "objProjec.h"
 
 class objTank
@@ -16,9 +22,7 @@ public:
 
 	textureDeclare* texDec;
 
-	objProjec testProj = { 0.0, 0.0, 0.0, 0.0, 0.0, texDec };
-
-	//vector <objProjec> mainProj;
+	std::vector <objProjec> mainProj;
 
 	objTank(double dx_pos, double dy_pos, textureDeclare* texDecRef)
 	{
@@ -28,7 +32,7 @@ public:
 		setDefaultTexture();
 		changePos();
 		facingleft = true;
-		testProj = new objProjec(x_pos, y_pos, 300, 300 * -1, 200, texDec);
+		mainProj.push_back(objProjec(x_pos, y_pos, 300, 300 * -1, 200, texDec));
 	}
 
 	void setDefaultTexture()
@@ -97,3 +101,5 @@ public:
 		angle = armSprite.getRotation();
 	}
 };
+
+//#endif

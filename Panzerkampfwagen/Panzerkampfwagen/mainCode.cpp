@@ -1,4 +1,7 @@
+#include "includeLibs.h" 
+#include "textureDeclare.h"
 #include "objTank.h"
+#include "objProjec.h"
 
 int checkPlayerTurn()
 {
@@ -14,6 +17,7 @@ int main()
 	textureDeclare texDec;
 
 	int playerTurn = 0;
+	int numTanks = 2;
 
 	// Create the background
 	sf::RectangleShape background(sf::Vector2f(1400, 800));
@@ -21,13 +25,6 @@ int main()
 	background.setFillColor(sf::Color(60, 60, 60));
 
 	std::vector <objTank> tanks;
-
-	objTank testTank(466, 740, &texDec);
-
-	//tanks.push_back(testTank);
-	//testTank.x_pos = 932;
-	//testTank.changePos();
-	//tanks.push_back(testTank);
 
 	tanks.push_back(objTank(466, 740, &texDec));
 	tanks.push_back(objTank(932, 740, &texDec));
@@ -37,10 +34,10 @@ int main()
 
 	while (window.isOpen()){ // Basic window code
 
-		sf::Event event1;
-		while (window.pollEvent(event1))
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			if (event1.type == sf::Event::Closed){
+			if (event.type == sf::Event::Closed){
 				window.close();
 			}
 		}
@@ -51,11 +48,11 @@ int main()
 
 		window.draw(background); // Draw basic window components
 		
-		for (int a = 0; a < 2; a++)
+		for (int a = 0; a < numTanks; a++)
 		{
 			window.draw(tanks[a].bodySprite);
 			window.draw(tanks[a].armSprite);
-			window.draw(tanks[a].testProj.projectile);
+			window.draw(tanks[a].mainProj[0].projectile);
 		}
 
 		window.display(); // Display the window
@@ -77,14 +74,12 @@ int main()
 		tanks[playerTurn].changePos();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-			tanks[playerTurn].testProj.shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
+			tanks[playerTurn].mainProj[0].shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
 		}
 
-		tanks[playerTurn].testProj.moveProj();
+		tanks[playerTurn].mainProj[0].moveProj();
 
-		tanks[playerTurn].testProj.testOut(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
-
-
+		tanks[playerTurn].mainProj[0].testOut(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
 
 	}
 	return 10;

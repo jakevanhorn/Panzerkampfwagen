@@ -1,3 +1,7 @@
+//#ifndef textureDeclare_HEADER
+//#define textureDeclare_HEADER
+#pragma once
+
 #include "includeLibs.h"
 
 class textureDeclare
@@ -28,9 +32,11 @@ public:
 		textures[name] = tempTexture;
 	}
 
-	sf::Texture* getTextureByName(std::string name)
-	{
-		return &textures[name];
-	}
+	//sf::Texture* getTextureByName(std::string name)
+	//{
+	//	return &textures[name];
+	//}
 
 };
+
+//#endif
