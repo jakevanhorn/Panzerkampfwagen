@@ -34,12 +34,12 @@ public:
 		y_accelC = cy_acc;
 		projecReset(cx_pos, cy_pos);
 		setTexture(10);
-		projectile.setScale(sf::Vector2f(1, 1));
+		projectile.setScale(sf::Vector2f(.002, .002));
 	}
 
 	void setTexture(int type)
 	{
-		projectile.setTexture(texDec->textures["Hidden"]);
+		projectile.setTexture(texDec->textures["Fireball"]);
 	}
 
 	void projecReset(double tx_pos, double ty_pos)
@@ -58,7 +58,7 @@ public:
 			projecReset(tx_pos, ty_pos);
 			testAir = 1;
 			clock.restart();
-			projectile.setTexture(texDec->textures["Fireball"]);
+			projectile.setScale(sf::Vector2f(1, 1));
 		}
 	}
 
@@ -79,7 +79,7 @@ public:
 		if (y_pos > 790){
 			projecReset(tx_pos, ty_pos);
 			testAir = 0;
-			projectile.setTexture(texDec->textures["Hidden"]);
+			projectile.setScale(sf::Vector2f(.002, .002));
 		}
 	}
 };
