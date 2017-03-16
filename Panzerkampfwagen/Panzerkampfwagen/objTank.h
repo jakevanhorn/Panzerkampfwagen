@@ -82,7 +82,7 @@ public:
 
 	void moveArm()
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && armSprite.getRotation() != 90){
 			if (facingleft == true){
 				armSprite.rotate(1);
 			}
@@ -90,7 +90,7 @@ public:
 				armSprite.rotate(-1);
 			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && armSprite.getRotation() != 270){
 			if (facingleft == true){
 				armSprite.rotate(-1);
 			}
@@ -99,6 +99,16 @@ public:
 			}
 		}
 		angle = armSprite.getRotation();
+		if (angle > 90 && angle <= 180){
+			angle = 180 - angle;
+		}
+		else if (angle > 180 && angle <= 270){
+			angle = (angle - 180) * -1;
+		}
+		else if (angle > 270 && angle <= 360){
+			angle = (360 - angle) * -1;
+		}
+		std::cout << angle << std::endl;
 	}
 };
 

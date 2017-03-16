@@ -1,12 +1,12 @@
-﻿Build started 3/10/2017 9:22:58 AM.
+﻿Build started 3/16/2017 10:32:42 AM.
      1>Project "E:\GitHub_Code\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen\Panzerkampfwagen.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Programs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mainCode.cpp
          mainCode.cpp
      1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(37): warning C4305: 'argument' : truncation from 'double' to 'float'
      1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(52): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(72): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(82): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(90): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objprojec.h(100): warning C4305: 'argument' : truncation from 'double' to 'float'
      1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(50): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(51): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>e:\github_code\panzerkampfwagen\panzerkampfwagen\panzerkampfwagen\objtank.h(101): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data

@@ -26,7 +26,7 @@ int main()
 
 	std::vector <objTank> tanks;
 
-	tanks.push_back(objTank(466, 740, &texDec));
+	tanks.push_back(objTank(466, 400, &texDec));
 	tanks.push_back(objTank(932, 740, &texDec));
 
 	sf::RenderWindow window(sf::VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
@@ -74,7 +74,7 @@ int main()
 		tanks[playerTurn].changePos();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-			tanks[playerTurn].mainProj[0].shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos);
+			tanks[playerTurn].mainProj[0].shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos, tanks[playerTurn].angle, tanks[playerTurn].facingleft);
 		}
 
 		tanks[playerTurn].mainProj[0].moveProj();

@@ -51,11 +51,29 @@ public:
 		y_accel = y_accelC;
 		projectile.setPosition(x_pos, y_pos);
 	}
+
+	void changeVel(int angle, bool facingleft)
+	{
+		double xv;
+		double yv;
+		bool down = false;
+		if (angle < 0){
+			down = true;
+			angle *= -1;
+		}
+		xv = 300 * cos(angle * (3.14159265 / 180));
+		yv = 300 * sin(angle * (3.14159265 / 180));
+		if (facingleft == true){ xv *= -1; }
+		if (down == false){ yv *= -1; }
+		x_velocity = xv;
+		y_velocity = yv;
+	}
 	
-	void shootProj(double tx_pos, double ty_pos)
+	void shootProj(double tx_pos, double ty_pos, int angle, bool facingleft)
 	{
 		if (testAir != 1) {
 			projecReset(tx_pos, ty_pos);
+			changeVel(angle, facingleft);
 			testAir = 1;
 			clock.restart();
 			projectile.setScale(sf::Vector2f(1, 1));
