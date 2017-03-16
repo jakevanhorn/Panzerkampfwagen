@@ -41,8 +41,8 @@ public:
 		armSprite.setTexture(texDec->textures["RedArm"]);
 		bodySprite.setOrigin(14, 26);
 		bodySprite.setScale(1.0f, 1.0f);
-		armSprite.setScale(1.0f, 1.0f);
 		armSprite.setOrigin(22, 2);
+		armSprite.setScale(1.0f, 1.0f);
 	}
 
 	void changePos()

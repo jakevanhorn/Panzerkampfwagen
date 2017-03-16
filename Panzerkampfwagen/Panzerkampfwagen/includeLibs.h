@@ -1,6 +1,6 @@
 //#ifndef includeLibs_HEADER
 //#define includeLibs_HEADER
-#pragma once
+//#pragma once
 
 #include <SFML/Graphics.hpp>
 
