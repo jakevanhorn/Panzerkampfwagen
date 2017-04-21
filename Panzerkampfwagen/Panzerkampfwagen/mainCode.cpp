@@ -71,6 +71,10 @@ int main()
 			tanks[playerTurn].moveArm();
 		}
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) | sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+			tanks[playerTurn].mainProj[0].changePower();
+		}
+
 		tanks[playerTurn].changePos();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){

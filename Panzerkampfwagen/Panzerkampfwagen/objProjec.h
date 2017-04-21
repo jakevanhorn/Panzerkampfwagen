@@ -11,6 +11,7 @@ public:
 	std::string name;
 	double x_pos;
 	double y_pos;
+	double powerScale = 300;
 	double x_velocity;
 	double y_velocity;
 	double y_accel;
@@ -61,8 +62,8 @@ public:
 			down = true;
 			angle *= -1;
 		}
-		xv = 300 * cos(angle * (3.14159265 / 180));
-		yv = 300 * sin(angle * (3.14159265 / 180));
+		xv = powerScale * cos(angle * (3.14159265 / 180));
+		yv = powerScale * sin(angle * (3.14159265 / 180));
 		if (facingleft == true){ xv *= -1; }
 		if (down == false){ yv *= -1; }
 		x_velocity = xv;
@@ -90,6 +91,17 @@ public:
 			projectile.setPosition(x_pos, y_pos);
 			clock.restart();
 		}
+	}
+
+	void changePower()
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) &!sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+			powerScale += 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) &!sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+			powerScale -= 1;
+		}
+		std::cout << powerScale << std::endl;
 	}
 
 	void testOut(double tx_pos,double ty_pos)
