@@ -2,6 +2,8 @@
 //#define objProjec_HEADER
 #pragma once
 
+/**/
+
 #include"includeLibs.h"
 #include "textureDeclare.h"
 
@@ -9,18 +11,18 @@ class objProjec
 {
 public:
 	std::string name;
-	double x_pos;
+	double x_pos; // X and Y pos for the projectile
 	double y_pos;
-	double powerScale = 300;
-	double x_velocity;
+	double powerScale = 300; // Changes initial velocity from launch
+	double x_velocity; // X and Y velocity for the projectile 
 	double y_velocity;
-	double y_accel;
-	double x_velocityC;
+	double y_accel; // Allows for gravity and other acceleration in the Y direction
+	double x_velocityC; // These three values allow for reseting of the velocity and acceleration values if needed
 	double y_velocityC;
 	double y_accelC;
-	int type = 0;
-	int testAir = 0;
-	sf::Clock clock;
+	int type = 0; // Will be used if there are multiple types of projectiles
+	int testAir = 0; // Value that represents whether or not the projectile is moving
+	sf::Clock clock; // 
 	sf::Time time;
 
 	sf::Sprite projectile;
