@@ -10,6 +10,16 @@ int checkPlayerTurn()
 	else { return 0; }
 }
 
+void regularShot(std::vector <objTank>* tanksRef, int playerTurn)
+{
+	tanksRef[playerTurn]->mainProj[0]->shootProj(tanksRef[playerTurn]->x_pos, tanksRef[playerTurn]->y_pos, tanksRef[playerTurn]->angle, tanksRef[playerTurn]->facingleft);
+}
+
+//void multiShotTwo()
+//{
+//
+//}
+
 int main()
 {
 	srand(time(NULL));
@@ -17,7 +27,8 @@ int main()
 	textureDeclare texDec;
 
 	int playerTurn = 0;
-	int numTanks = 2;
+	int numTanks = 1;
+	int shotType = 0;
 
 	// Create the background
 	sf::RectangleShape background(sf::Vector2f(1400, 800));
@@ -27,7 +38,7 @@ int main()
 	std::vector <objTank> tanks;
 
 	tanks.push_back(objTank(466, 400, &texDec));
-	tanks.push_back(objTank(932, 740, &texDec));
+	//tanks.push_back(objTank(932, 740, &texDec));
 
 	sf::RenderWindow window(sf::VideoMode(1400, 800), "Panzerkampfwagen"); // Create the Window
 	window.setFramerateLimit(120);
@@ -59,9 +70,9 @@ int main()
 
 		// This is the section where all are functions are called if appropriate
 
-		if (checkPlayerTurn() != 0){
-			playerTurn = checkPlayerTurn() - 1;
-		}
+		//if (checkPlayerTurn() != 0){
+		//	playerTurn = checkPlayerTurn() - 1;
+		//}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) | sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 			tanks[playerTurn].moveTank();
@@ -77,8 +88,29 @@ int main()
 
 		tanks[playerTurn].changePos();
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
+			shotType++;
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+			shotType--;
+		}
+
+		if (shotType < 0 | shotType > 1){
+			shotType = 0;
+		}
+
+		std::cout << shotType << std::endl;
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-			tanks[playerTurn].mainProj[0].shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos, tanks[playerTurn].angle, tanks[playerTurn].facingleft);
+
+			if (shotType == 0){ regularShot(&tanks,playerTurn); }
+			//if (shotType == 1){ multiShotTwo(); }
+			//if (shotType == 2){ multiShotThree(); }
+			//if (shotType == 3){ splitShot(); }
+			//if (shotType == 4){ bigShot(); }
+
+			//tanks[playerTurn].mainProj[0].shootProj(tanks[playerTurn].x_pos, tanks[playerTurn].y_pos, tanks[playerTurn].angle, tanks[playerTurn].facingleft);
 		}
 
 		tanks[playerTurn].mainProj[0].moveProj();
